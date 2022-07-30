@@ -1,0 +1,103 @@
+div.tooltip {
+  position: absolute;
+  text-align: left;
+  width: 350px;
+  height: 90px;
+  padding: 2px;
+  font-family: Arial, Helvetica, sans-serif;
+  font: 14px sans-serif;
+  fill: rgb(68, 68, 68);
+  background: rgb(255, 255, 255);
+  border: 5px;
+  border-radius: 0px;
+  pointer-events: none;
+}
+
+.legend {
+  fill: white;
+  font-family: Arial, Helvetica, sans-serif;
+  font: 14px Arial;
+  fill: rgb(68, 68, 68);
+}
+
+.tt-legend .legend-scale ul {
+  margin: 0;
+  margin-bottom: 5px;
+  padding: 0;
+  float: left;
+  list-style: none;
+}
+
+.tt-legend .legend-scale ul li {
+  font-size: 80%;
+  list-style: none;
+  margin-left: 0;
+  line-height: 12px;
+  margin-bottom: 2px;
+
+  fill: white;
+  font-family: Arial, Helvetica, sans-serif;
+  font: 14px Arial;
+  fill: rgb(68, 68, 68);
+}
+
+.tt-legend ul.legend-labels li span {
+  display: block;
+  float: left;
+  height: 10px;
+  width: 10px;
+  margin-right: 5px;
+  margin-left: 0;
+  border: 1px solid #999;
+}
+
+.title {
+  font-family: Arial, Helvetica, sans-serif;
+  font: 20px sans-serif;
+  fill: rgb(68, 68, 68);
+}
+
+.axis {
+  stroke: black;
+  fill: none;
+  stroke-width: 0px;
+  font-family: Arial, Helvetica, sans-serif;
+  font: 12px Arial;
+  fill: rgb(68, 68, 68);
+}
+
+.btn {
+  border: none;
+  outline: none;
+  padding: 10px 16px;
+  background-color: rgb(255, 255, 255);
+  border: 1px solid rgb(29, 112, 184);
+  cursor: pointer;
+  float: left;
+  display: inline-flex;
+  font: 14px Arial;
+}
+
+.active,
+.btn:hover {
+  background-color: rgb(113, 160, 206);
+  color: white;
+}
+
+.heading {
+  text-align: left;
+  margin-bottom: 5px;
+  font-size: 90%;
+  font-family: Arial, Helvetica, sans-serif;
+  fill: rgb(68, 68, 68);
+}
+
+.heading p {
+  font: 16px Arial;
+}
+
+hr {
+  height: 12px;
+  border: 0;
+  box-shadow: inset 0 12px 12px -12px rgba(0, 0, 0, 0.5);
+}

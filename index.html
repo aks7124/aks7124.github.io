@@ -1,1 +1,43 @@
-Hello World...
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Vaccinations in United Kingdom</title>
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="heading">
+        <h1>Vaccinations in <span style="color:#689fd1;">United Kingdom</span></h1>
+        <hr>
+        <h2>Number of vaccinations given, by report date</h2>
+        <p>The number of COVID-19 vaccinations (all doses) given to people of all ages.</p>
+    </div>
+    <div id="btns">
+        <button id="all" class="btn active" onclick="updateData_all()">all</button>
+        <button id="1y" class="btn" onclick="updateData_1y()">1y</button>
+        <button id="6m" class="btn" onclick="updateData_6m()">6m</button>
+        <button id="3m" class="btn" onclick="updateData_3m()">3m</button>
+        <button id="1m" class="btn" onclick="updateData_1m()">1m</button>
+    </div>
+    <script>
+        var header = document.getElementById("btns");
+        var btns = header.getElementsByClassName("btn");
+        console.log(btns.length)
+        for (var i = 0; i < btns.length; i++) {
+            btns[i].addEventListener("click", function () {
+                var current = document.getElementsByClassName("active");
+                current[0].className = current[0].className.replace(" active", "");
+                this.className += " active";
+            });
+        }
+    </script>
+    <div id="chart">
+    </div>
+    <hr>
+    <script src="index.js"></script>
+</body>
+
+</html>
