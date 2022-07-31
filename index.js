@@ -23,13 +23,19 @@ function processRow(row) {
     value_d1: parseInt(row.newPeopleVaccinatedFirstDoseByPublishDate) || 0,
     value_d2: parseInt(row.newPeopleVaccinatedSecondDoseByPublishDate) || 0,
     value_d3: parseInt(row.newPeopleVaccinatedThirdInjectionByPublishDate) || 0,
+    cum_d1: parseInt(row.cumPeopleVaccinatedFirstDoseByPublishDate) || 0,
+    cum_d2: parseInt(row.cumPeopleVaccinatedSecondDoseByPublishDate) || 0,
+    cum_d3: parseInt(row.cumPeopleVaccinatedThirdInjectionByPublishDate) || 0,
+    cum_all: parseInt(row.cumVaccinesGivenByPublishDate) || 0,
   };
 }
 
 updateData_all();
 
 function updateData_all() {
-  d3.csv("data/data_2022-Jul-13.csv", processRow).then(processData);
+  d3.csv("data/data_2022-Jul-13.csv", processRow)
+    .then(addTotals)
+    .then(processData);  
 }
 
 function updateData_1y() {
@@ -120,10 +126,7 @@ function processData(data) {
     .append("rect")
     .attr("width", "100%")
     .attr("height", "100%")
-    // .attr("fill", "#fff7fb"); //#f8f8f8
     .attr("fill", "#f8f8f8");
-
-  svg.append("svg:text").attr("class", "title").attr("x", 20).attr("y", 20);
 
   let chart_tooltip = d3
     .select("body")
@@ -188,7 +191,6 @@ function processData(data) {
     .data(dataset)
     .enter()
     .append("g")
-    //.attr("class", "dose")
     .style("fill", function (d, i) {
       return colors[i][1];
     });
@@ -283,4 +285,33 @@ function processData(data) {
           return colors[i][0];
         });
     });
+}
+
+function addTotals(data) {
+  format = d3.format(",");
+  d3.select("#totals").html("");
+  d3.select("#totals")
+    .append("p")
+    .html(
+      "<h3>People vaccinated                                                " +
+        "                                               Vaccinations given</h2>"
+    )
+    .append("p")
+    .html(
+      "<snap class='txt'>First dose total</snap>                <snap class='txt'>Second dose total</snap>                 " +
+      "<snap class='txt'>Booster or 3rd dose total</snap>                                   <snap class='txt'>Total</snap>"
+    )
+    .append("p")
+    .html(
+      "<span class='totals'>" +
+        format(data[0].cum_d1) +
+        "</span>            <span class='totals'>" +
+        format(data[0].cum_d2) +
+        "</span>                 <span class='totals'>" +
+        format(data[0].cum_d3) +
+        "</span>                                             <span class='totals'>" +
+        format(data[0].cum_all) +
+        "</span><hr>"
+    );
+  return data;
 }

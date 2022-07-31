@@ -9,9 +9,10 @@
 </head>
 
 <body>
-    <div class="heading">
+    <div id="header" class="heading">
         <h1>Vaccinations in <span style="color:#689fd1;">United Kingdom</span></h1>
         <hr>
+        <div id="totals"></div>
         <h2>Number of vaccinations given, by report date</h2>
         <p>The number of COVID-19 vaccinations (all doses) given to people of all ages.</p>
     </div>
@@ -25,7 +26,6 @@
     <script>
         var header = document.getElementById("btns");
         var btns = header.getElementsByClassName("btn");
-        console.log(btns.length)
         for (var i = 0; i < btns.length; i++) {
             btns[i].addEventListener("click", function () {
                 var current = document.getElementsByClassName("active");

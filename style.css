@@ -96,8 +96,22 @@ div.tooltip {
   font: 16px Arial;
 }
 
+.totals {
+  font: 22px Arial;
+  text-decoration: underline dotted rgb(75, 75, 75);    ;
+}
+
+.txt {
+  font: 14px Arial;
+  color: rgb(75, 75, 75);    
+}
+
 hr {
   height: 12px;
   border: 0;
   box-shadow: inset 0 12px 12px -12px rgba(0, 0, 0, 0.5);
+}
+
+p {
+  white-space: pre;
 }
